@@ -1,4 +1,4 @@
-FROM fedora:35
+FROM fedora:36
 
 RUN mkdir -p /opt/grafana
 RUN adduser -m grafana
