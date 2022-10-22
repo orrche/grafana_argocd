@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+  name: grafana
+spec:
+  selector:
+    matchLabels:
+      name: grafana
+  template:
+    metadata:
+      labels:
+        name: grafana
+    spec:
+      containers:
+      - image: mireg.wr25.org/grafana:latest@sha256:4b596325912065707c8037b46cb1a465179124604616cdb6fbc73ad30f3ef96a
+        imagePullPolicy: Always
+        name: grafana
+        ports:
+        - containerPort: 3000
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /opt/grafana/grafana/data
+          name: grafanadata
+      restartPolicy: Always
+      volumes:
+      - name: grafanadata
+        persistentVolumeClaim:
+          claimName: grafanadata
