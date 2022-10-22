@@ -13,7 +13,7 @@ spec:
         name: grafana
     spec:
       containers:
-      - image: mireg.wr25.org/grafana:latest@sha256:ab1c96100c829ba247b64d408fc84196f14ff08c849d3704ca61cb4f6c3ee22b
+      - image: mireg.wr25.org/grafana:latest@sha256:5306338233ddb5a82ef079d8a795f58e668a0fc60975ce1d7886eb7642edc838
         imagePullPolicy: Always
         name: grafana
         ports:
